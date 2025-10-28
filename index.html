@@ -1,116 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KUTAMINATOR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>
-        <a href="index.html" target="_blank" style="text-decoration: none; color: inherit;">
-            <span class="h1Ku">KUTAMINATOR</span> <span class="h1Num">40000</span>
-        </a>
-    </h1>
+    <!-- Dark Mode Toggle Button -->
+    <button id="darkModeToggle" class="btn btn-outline-secondary position-fixed top-0 end-0 m-3" style="z-index: 1000;">
+        <i class="bi bi-sun-fill" id="lightIcon"></i>
+        <i class="bi bi-moon-fill d-none" id="darkIcon"></i>
+    </button>
 
-    <div>
-        <form onsubmit="return false;">
+    <div class="container py-3">
+        <h1 class="text-center m-4 fw-bold">
+            <a href="index.html" target="_blank" style="text-decoration: none; color: inherit;">
+                <span class="h1Ku text-body">KUTAMINATOR</span> <span class="h1Num text-primary">40000</span>
+            </a>
+        </h1>
 
-            <label for="clientName">Name:</label>
-            <input type="text" id="clientName" placeholder="NAME">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <form onsubmit="return false;" class="p-3 bg-body-secondary rounded shadow-sm">
 
-            <label for="orderNumber">Order Number:</label>
-            <input type="text" id="orderNumber" placeholder="ORDER NUMBER"><br>
+                    <!-- Name and Order Number in 2 columns (desktop) -->
+                    <div class="row g-3 mb-2">
+                        <div class="col-md-6">
+                            <label for="clientName" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="clientName" placeholder="NAME">
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label for="orderNumber" class="form-label">Order Number:</label>
+                            <input type="text" class="form-control" id="orderNumber" placeholder="ORDER NUMBER">
+                        </div>
+                    </div>
 
-            <label for="missingItem">Missing Item:</label>
-            <input type="text" id="missingItem" placeholder="MISSING ITEM" required>
+                    <!-- Missing Item and Quantity in 2 columns -->
+                    <div class="row g-3 mb-2">
+                        <div class="col-md-8">
+                            <label for="missingItem" class="form-label">Missing Item:</label>
+                            <input type="text" class="form-control" id="missingItem" placeholder="MISSING ITEM" required>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <label for="quantityOfItems" class="form-label">Quantity:</label>
+                            <input type="number" class="form-control" id="quantityOfItems" min="1" max="99" value="1">
+                        </div>
+                    </div>
 
-            <label for="quantityOfItems">Quantity:</label>
-            <input type="number" id="quantityOfItems" min="1" max="99" value="1">
+                    <!-- Textarea -->
+                    <div class="mb-3">
+                        <label for="commentBox" class="form-label">Other Observations:</label>
+                        <textarea class="form-control" id="commentBox" rows="3" placeholder="OTHER OBSERVATIONS"></textarea>
+                    </div>
 
-            <br>
-            <br>
-            <label for="commentBox"></label>
-            <textarea id="commentBox" placeholder="OTHER OBSERVATIONS"></textarea>
+                    <hr class="my-3">
 
-            <br>
-            <br>
 
-            <input type="radio" id="option1" value="option1" name="option">
-            <label for="option1">Item not in stock, already ordered from the manufacturer</label>
+                    <h5 class="mb-2">Select Issue Type:</h5>
 
-            <br>
-            <br>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" id="option1" value="option1" name="option">
+                        <label class="form-check-label" for="option1">
+                            Item not in stock, already ordered from the manufacturer
+                        </label>
+                    </div>
 
-            <input type="radio" id="option2" value="option2" name="option">
-            <label for="option2">Item not in stock and not ordered</label>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" id="option2" value="option2" name="option">
+                        <label class="form-check-label" for="option2">
+                            Item not in stock and not ordered
+                        </label>
+                    </div>
 
-            <div id="extraOptions" style="display: none;" >
-                <br>
-                <br>
-                <input type="checkbox" id="extraOption1" value="extraOption1" name="extraOption">
-                <label for="extraOption1"> Partial delivery, exchange of items or cancellation for standard items</label>
-                <br>
-                <br>
-                <input type="checkbox" id="extraOption2" value="extraOption2" name="extraOption">
-                <label for="extraOption2">Change or cancel small items (Under 10 eur)</label>
+                    <div id="extraOptions" class="ms-4 mt-2" style="display: none;">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="extraOption1" value="extraOption1" name="extraOption">
+                            <label class="form-check-label" for="extraOption1">
+                                Partial delivery, exchange of items or cancellation for standard items
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="extraOption2" value="extraOption2" name="extraOption">
+                            <label class="form-check-label" for="extraOption2">
+                                Change or cancel small items (Under 10 eur)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" id="option3" value="option3" name="option">
+                        <label class="form-check-label" for="option3">
+                            Item not in stock and no longer available
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" id="option4" value="option4" name="option">
+                        <label class="form-check-label" for="option4">
+                            Wrong address
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" id="option5" value="option5" name="option">
+                        <label class="form-check-label" for="option5">
+                            Wrong Packstation
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" id="option6" value="option6" name="option">
+                        <label class="form-check-label" for="option6">
+                            Wrong Postnumber
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" id="option7" value="option7" name="option">
+                        <label class="form-check-label" for="option7">
+                            Label already printed but we will keep the package until the specified date
+                        </label>
+                    </div>
+
+                                        <hr class="my-3">
+
+                    <div class="mb-2">
+                        <label class="form-label">Message Language:</label>
+                        <div class="btn-group w-100" role="group">
+                            <input type="radio" class="btn-check" name="msgLang" id="langDE" value="de" checked>
+                            <label class="btn btn-outline-primary" for="langDE">🇩🇪 Deutsch</label>
+                            
+                            <input type="radio" class="btn-check" name="msgLang" id="langEN" value="en">
+                            <label class="btn btn-outline-primary" for="langEN">🇬🇧 English</label>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-orange btn-lg" onclick="generateMsg()">
+                            <i class="bi bi-check-circle"></i> GENERATE
+                        </button>
+                        <button type="reset" class="btn btn-outline-secondary btn-lg">
+                            <i class="bi bi-arrow-clockwise"></i> CLEAR
+                        </button>
+                    </div>
+
+                    <div id="messageBox" class="mt-4" style="display: none;">
+                        <div class="card bg-body border-secondary">
+                            
+                            <div class="card-body">
+                                <p id="msgReady" class="card-text mb-0"></p>
+                            </div>
+                            <div class="card-footer text-center bg-body-secondary">
+                                <button type="button" id="copyButton" class="btn btn-orange">
+                                    <i class="bi bi-clipboard"></i>
+                                    <span class="copy-label">Copy</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-            
-            <br>
-            <br>
-
-            <input type="radio" id="option3" value="option3" name="option">
-            <label for="option3">Item not in stock and no longer available</label>
-
-            <br>
-            <br>
-
-            <input type="radio" id="option4" value="option4" name="option">
-            <label for="option4">Wrong address</label>
-
-            <br>
-            <br>
-
-            <input type="radio" id="option5" value="option5" name="option">
-            <label for="option5">Wrong Packstation</label>
-
-            <br>
-            <br>
-
-            <input type="radio" id="option6" value="option6" name="option">
-            <label for="option6">Wrong Postnumber</label>
-
-            <br>
-            <br>
-
-            <input type="radio" id="option7" value="option7" name="option">
-            <label for="option7">****Label already printed but we will keep the package until the specified
-                date****</label>
-
-            <br>
-            <br>
-
-            <button type="button" class="generateBtn" onclick="generateMsg()">GENERATE</button>
-            <button type="reset" class="resetBtn">CLEAR</button>
-            <br>
-            <br>
-            <div id="messageBox">
-                <p id="msgReady"></p>
-                <button type="button" class="copy" data-copy="#msgReady">
-                    <ion-icon name="copy-outline" class="copy-icon"></ion-icon>
-                    <span class="copy-label">Copy</span>
-                </button>
-            </div>
-
-        </form>
+        </div>
     </div>
-    <footer>“In the grim darkness of Kutami's back room, there are only emails”.</footer>
+    
+    <footer class="mt-auto py-3 bg-dark text-white text-center w-100">
+        "In the grim darkness of Kutami's back room, there are only emails".
+    </footer>
 
+    <!-- Toast Container for Alerts -->
+    <div class="toast-container position-fixed top-50 start-50 translate-middle p-3" style="z-index: 1100;">
+        <div id="alertToast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <span id="toastMessage">Please select an option</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="index.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
