@@ -1,5 +1,7 @@
 **KUTAMINATOR** is a lightweight web tool to generate ready-to-send customer messages for common order issues (e.g., missing items, address errors, stock problems).
 
+https://n3t0n.github.io/Kutaminator/
+
 ## Why this exists
 
 This tool was built in a couple of evenings under time pressure for the 2024 Christmas campaign, when we were short-staffed. It has been used daily ever since and continues to serve its purpose well.
