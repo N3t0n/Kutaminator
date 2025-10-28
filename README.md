@@ -4,7 +4,7 @@
 
 This tool was built in a couple of evenings under time pressure for the 2024 Christmas campaign, when we were short-staffed. It has been used daily ever since and continues to serve its purpose well.
 
-Our current ERP (JTL-Wawi) limits how granular and dynamic our email templates can be. KUTAMINATOR exists to bridge that gap: it provides fast, consistent message generation with simple variables and predefined options—without requiring changes in JTL-Wawi.
+Our current ERP (JTL-Wawi) limits how granular and dynamic our email templates can be. KUTAMINATOR exists to bridge that gap: it provides fast, consistent message generation with simple variables and predefined options without requiring changes in JTL-Wawi.
 
 ## How it works
 

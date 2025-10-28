@@ -1,6 +1,5 @@
 body {
-    font-family: arial, sans-serif;
-    background-color: hsl(0, 0%, 95%);
+    font-family: 'Oxanium', sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -11,104 +10,47 @@ h1 {
     text-align: center;
 }
 
-.h1Ku {
-    color: black;
-}
-
-.h1Num {
-    color: #0688fa;
-
-}
-
-form {
-    background-color: hsl(0, 0%, 100%);
-    text-align: left;
-    max-width: 1000px;
-    margin: auto;
-    padding: 50px;
-    border-radius: 10px;
-
-}
-
 label {
     font-size: 1rem;
     font-weight: bold;
 }
 
-.generateBtn {
-
-    box-shadow: inset 0px -3px 7px 0px #29bbff;
-    background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
-    background-color: #2dabf9;
-    border-radius: 3px;
-    border: 1px solid #0b0e07;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: arial, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 9px 23px;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #263666;
-}
-
-.generateBtn:hover {
-    background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
-    background-color: #0688fa;
-}
-
-.generateBtn:active {
-    position: relative;
-    top: 1px;
-}
-
-
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     background-color: #333;
     color: white;
     position: relative;
     margin-top: auto;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
-#messageBox {
-    display: none;
-    border: 2px solid #333;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px 0;
-    background-color: #f9f9f9;
-    color: #333;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.copy {
-    background-color: hsl(39, 100%, 50%);
+.btn-orange {
+    background-color: #ff8c00;
+    border-color: #ff8c00;
     color: white;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    padding: 8px 12px;
-    gap: 8px;
-    border: none;
-    outline: none;
-    cursor: pointer;
 }
 
-.copy:hover {
-    background-color: hsl(30, 100%, 50%);
+.btn-orange:hover {
+    background-color: #ffa500;
+    border-color: #ffa500;
+    color: white;
 }
 
-.copy:active {
-    background-color: hsl(30, 100%, 50%);
-
+.btn-orange:active,
+.btn-orange:focus {
+    background-color: #ff7700;
+    border-color: #ff7700;
+    color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.5);
 }
 
-.copy:disabled {
-    background-color: #f1f1f1;
-    color: #333333;
+.btn-orange:disabled {
+    background-color: #cc7000;
+    border-color: #cc7000;
+    color: white;
+    opacity: 1;
     cursor: not-allowed;
 }
